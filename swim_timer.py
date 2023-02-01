@@ -26,16 +26,16 @@ class EVENT():
 
     def print_board(self):
         os.system('cls')
-        print(f"Event {self.event_number}:     {self.event_distance:3}m {self.event_type} {self.event_gender}\t{event.convert_time(self.timer)}s\nHeat {self.heat}")
+        print(f"Event {self.event_number}:     {self.event_distance:3}m {self.event_type} {self.event_gender}\t{EVENT.convert_time(self.timer)}s\nHeat {self.heat}")
         print(f"Lane\tName\t\tTiming\t\tRank")
-        if self.s1:
-            print(f"{self.s1.lane}\t{self.s1.name.ljust(15)}\t{event.convert_time(self.s1.timing) if self.s1.timing else ''}\t\t{self.s1.rank if self.s1.rank else ''}")
-        if self.s2:
-            print(f"{self.s2.lane}\t{self.s2.name.ljust(15)}\t{event.convert_time(self.s2.timing) if self.s2.timing else ''}\t\t{self.s2.rank if self.s2.rank else ''}")
-        if self.s3:
-            print(f"{self.s3.lane}\t{self.s3.name.ljust(15)}\t{event.convert_time(self.s3.timing) if self.s3.timing else ''}\t\t{self.s3.rank if self.s3.rank else ''}")
-        if self.s4:
-            print(f"{self.s4.lane}\t{self.s4.name.ljust(15)}\t{event.convert_time(self.s4.timing) if self.s4.timing else ''}\t\t{self.s4.rank if self.s4.rank else ''}")
+        if self.swimmers[0]:
+            print(f"{self.swimmers[0].lane}\t{self.swimmers[0].name.ljust(15)}\t{EVENT.convert_time(self.swimmers[0].timing) if self.swimmers[0].timing else ''}\t\t{self.swimmers[0].rank if self.swimmers[0].rank else ''}")
+        if self.swimmers[1]:
+            print(f"{self.swimmers[1].lane}\t{self.swimmers[1].name.ljust(15)}\t{EVENT.convert_time(self.swimmers[1].timing) if self.swimmers[1].timing else ''}\t\t{self.swimmers[1].rank if self.swimmers[1].rank else ''}")
+        if self.swimmers[2]:
+            print(f"{self.swimmers[2].lane}\t{self.swimmers[2].name.ljust(15)}\t{EVENT.convert_time(self.swimmers[2].timing) if self.swimmers[2].timing else ''}\t\t{self.swimmers[2].rank if self.swimmers[2].rank else ''}")
+        if self.swimmers[3]:
+            print(f"{self.swimmers[3].lane}\t{self.swimmers[3].name.ljust(15)}\t{EVENT.convert_time(self.swimmers[3].timing) if self.swimmers[3].timing else ''}\t\t{self.swimmers[3].rank if self.swimmers[3].rank else ''}")
 
     def start_event(self):
         self.print_board()
@@ -67,6 +67,15 @@ class EVENT():
         end = time.time()
         self.timer = end - start
         self.print_board()
+    
+    def show_results(self):
+        os.system('cls')
+        self.swimmers.sort(key= lambda obj: obj.rank)
+        self.print_board()
+        input()
+
+    def __repr__(self):
+        return f"{self.event_number}- Heat {self.heat}: {self.event_distance}m {self.event_type} {self.event_gender}"
 
 class SWIMMER():
     def __init__(self, lane: int, name: str):
@@ -75,11 +84,24 @@ class SWIMMER():
         self.name = name
         self.rank = None
         self.timing = None
+    
+    def __repr__(self):
+        return f'SWIMMER({self.lane}, {self.name}, {self.rank})'
 
 s1 = SWIMMER(1, "PARTH")
 s2 = SWIMMER(2, "AVIRAL")
 s3 = SWIMMER(3, "KRISHNA")
 s4 = SWIMMER(4, "VIKRANT")
 
-event = EVENT(1, 100, "Breaststroke", "Male", 1, s1, s2, s3, s4)
-event.start_event()
+sf1 = SWIMMER(1, "AASHNA")
+sf2 = SWIMMER(2, "DIKSHA")
+sf3 = SWIMMER(3, "GARGI")
+sf4 = SWIMMER(4, "AVNI")
+
+BS = EVENT(1, 100, "Breaststroke", "Male", 1, s1, s2, s3, s4)
+FS = EVENT(2, 50, "Freestyle", "Female", 1, sf1, sf2, sf3, sf4)
+events = (BS, FS)
+
+for eve in events:
+    eve.start_event()
+    eve.show_results()
