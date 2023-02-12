@@ -28,15 +28,15 @@ It prints/displays the board that consists of the Event's details, with its corr
 
 ```py
 s1 = SWIMMER(1, "PARTH")
-s2 = SWIMMER(2, "AVIRAL")
-s3 = SWIMMER(3, "KRISHNA")
+s2 = SWIMMER(2, "KRISHNA")
+s3 = SWIMMER(3, "AVIRAL")
 s4 = SWIMMER(4, "VIKRANT")
 
-BS = EVENT(1, 100, "Breaststroke", "Male", 1, s1, s2, s3, s4)
+FS1 = EVENT(1, 50, "Freestyle", "Male", 1, s1, s2, s3, s4)
 ```
 <br>
 
-![image](https://user-images.githubusercontent.com/97667653/218269894-dbf645ef-b166-4163-956b-4c335b2d8555.png)
+![image](https://user-images.githubusercontent.com/97667653/218297628-c3e82282-152e-4e59-bd9c-92afb78bc48d.png)
 
 > Example use case of the `print_board()` function with the above code
 
@@ -50,15 +50,15 @@ Using the statement `self.event_distance // 100 if self.event_distance`. If the 
 Now after the start, each lane number has to be entered as that lane's swimmer touches the touchpad.
 So the timer stops as soon as `number of lanes * number of laps` lines of input has been entered after start.
 
-See the below example.
+https://user-images.githubusercontent.com/97667653/218297776-b44d9385-3ce9-4b6c-bb7a-bd5c4a184477.mp4
 
-> would be soon added
+> Example event of 50m Freestyle with 2 Heats. Timer on top right is updated as soon as a touch (in this case lane input) is detected.
 
 ### `show_result()`
 
 As soon as the `start_event()` function terminates, the partcipants, who were earlier sorted on the basis of their lane numbers, are now sorted on the basis of their rank numbers.
 
-![image](https://user-images.githubusercontent.com/97667653/218270753-a1fb4d42-844b-4c7c-96d8-26cff63fd431.png)
+![image](https://user-images.githubusercontent.com/97667653/218297876-13188b25-d348-450e-82f4-be6852c14a75.png)
 
 > Example use case where the above shown event, has finished
 
