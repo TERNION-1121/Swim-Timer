@@ -1,4 +1,4 @@
-<h1 align="center">Swim Timer</h1>
+<h1 align="center">🏊‍ Swim Timer ⏲</h1>
 
 A *Timing System for Swimming*[^1] made in Python.
 
