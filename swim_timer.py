@@ -89,18 +89,18 @@ class SWIMMER():
         return f'SWIMMER({self.lane}, {self.name}, {self.rank})'
 
 s1 = SWIMMER(1, "PARTH")
-s2 = SWIMMER(2, "AVIRAL")
-s3 = SWIMMER(3, "KRISHNA")
+s2 = SWIMMER(2, "KRISHNA")
+s3 = SWIMMER(3, "AVIRAL")
 s4 = SWIMMER(4, "VIKRANT")
 
-sf1 = SWIMMER(1, "AASHNA")
-sf2 = SWIMMER(2, "DIKSHA")
-sf3 = SWIMMER(3, "GARGI")
-sf4 = SWIMMER(4, "AVNI")
+sf1 = SWIMMER(1, "PRABHAT")
+sf2 = SWIMMER(2, "SHIVAM")
+sf3 = SWIMMER(3, "VAIBHAV")
+sf4 = SWIMMER(4, "ROHIT")
 
-BS = EVENT(1, 100, "Breaststroke", "Male", 1, s1, s2, s3, s4)
-FS = EVENT(2, 50, "Freestyle", "Female", 1, sf1, sf2, sf3, sf4)
-events = (BS, FS)
+FS1 = EVENT(1, 50, "Freestyle", "Male", 1, s1, s2, s3, s4)
+FS2 = EVENT(1, 50, "Freestyle", "Male", 2, sf1, sf2, sf3, sf4)
+events = (FS1, FS2)
 
 for eve in events:
     eve.start_event()
